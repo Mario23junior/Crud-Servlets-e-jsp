@@ -7,7 +7,7 @@ public class TesteUsuarioDAO {
    
 	
 	public static void main(String[] args) {
-		testeExcluir();
+		testSalvar();
 	}
 	
 	public static void testeAlterar() {
@@ -18,7 +18,7 @@ public class TesteUsuarioDAO {
   		usu.setSenha("matarUmsertoAlguem");
   		
   		UsuarioDAO usuDAO = new UsuarioDAO();
-  		usuDAO.update(usu);
+  		usuDAO.atualizar(usu);
   		
   		System.out.println("Usuario Alterado som sucesso !!!");
 	}
@@ -48,5 +48,32 @@ public class TesteUsuarioDAO {
   		
   		System.out.println("excluido com sucesso !!!!!");
       }
+      
+      
+      
+      
+      public static void testSalvar() {
+    	  Usuario usuario = new Usuario();
+    	  //usuario.setId(3);
+    	  usuario.setNome("Nicole whaterson");
+    	  usuario.setLogin("Nicole");
+    	  usuario.setSenha("232criptwww");
+    	  
+    	  UsuarioDAO usuDAO = new UsuarioDAO();
+    	  usuDAO.salvar(usuario);
+    	  
+    	  System.out.println("Salvo com sucesso !");
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 	
 }

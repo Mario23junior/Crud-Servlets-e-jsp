@@ -27,7 +27,7 @@ public class UsuarioDAO {
 	}
 	
 	
-	public void update(Usuario usu) {
+	public void atualizar(Usuario usu) {
 			
 	  String sql = "update usuario set nome=?, login=? , senha=? where id=?";
 			
@@ -47,9 +47,7 @@ public class UsuarioDAO {
 	
 	
 	public void excluir(Usuario usu) {
-		
 		  String sql = "delete from usuario where id=?";
-				
 			try(PreparedStatement preparador = conn.prepareStatement(sql)){
 				
 				preparador.setInt(1, usu.getId());
@@ -59,5 +57,35 @@ public class UsuarioDAO {
 		 			e.printStackTrace();
 				}
 			}
+	
+      
+	  public void salvar(Usuario usuario) {
+		  if(usuario.getId() != null) {
+			  atualizar(usuario);
+		  }else {
+			  cadastrar(usuario);
+		  }
+	  }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
