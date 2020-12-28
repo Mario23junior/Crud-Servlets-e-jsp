@@ -1,5 +1,7 @@
 package br.com.project;
 
+import java.util.List;
+
 import br.com.project.entidade.Usuario;
 import br.com.project.entidade.UsuarioDAO;
 
@@ -7,7 +9,7 @@ public class TesteUsuarioDAO {
    
 	
 	public static void main(String[] args) {
-		TesteBuscarPorId(1);
+		TestebuscarTodos();
 	}
 	
 	public static void testeAlterar() {
@@ -70,6 +72,15 @@ public class TesteUsuarioDAO {
     	  UsuarioDAO usuDAO = new UsuarioDAO();
     	  Usuario usuario = usuDAO.buscarPorId(3);
     	  System.out.println(usuario);
+      }
+      
+      public static void TestebuscarTodos() {
+    	  UsuarioDAO usuDAO = new UsuarioDAO();
+    	  List<Usuario> usuarioList = usuDAO.buscarTodos();
+    	  for(Usuario u : usuarioList) {
+    		  System.out.println(u);
+    	  }
+  
       }
       
       

@@ -102,7 +102,11 @@ public class UsuarioDAO {
 				  
 	  	}
 	  
-	  public Usuario buscarTodos(Integer id) {
+	  /*buscar de todos os registros da tabela de usuarios 
+	   * uma lists de objetos Usuarios contendo 0 elementos quando tiver registro
+	   * ou n elementos quando tive null
+	  */
+	  public List<Usuario> buscarTodos() {
 		  String sql = "Select * from usuario";
 		 			  
 		  List<Usuario> lista = new ArrayList<Usuario>();
@@ -117,6 +121,7 @@ public class UsuarioDAO {
 				 usuario.setLogin(result.getString("login"));
 				 usuario.setSenha(result.getString("senha"));
 				 
+				 //Adicionando usuario na lista
 				 lista.add(usuario);
 			 }
 			 
@@ -125,36 +130,8 @@ public class UsuarioDAO {
 	 
  			}
 		 
-		    return null;
+		    return lista;
 				  
-	  	}
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-		 
+	  } 
 	  
    }
