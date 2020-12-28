@@ -2,7 +2,10 @@ package br.com.project.entidade;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.project.ConnectionData.ConnectionFactory;
 
@@ -68,24 +71,90 @@ public class UsuarioDAO {
 	  }
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-}
+	 /*Busca de dados no banco de por ID
+	  *retorna um objeto usuario quando encontra os dados 
+	  *ou null quando não encontra os dados */
+	  
+	  public Usuario buscarPorId(Integer id) {
+		  String sql = "Select * from usuario where id =?;";
+		 			  
+		 try(PreparedStatement preparador = conn.prepareStatement(sql)){
+			 preparador.setInt(1, id);
+			 
+			ResultSet result = preparador.executeQuery();
+			
+			 if(result.next()) {
+				 Usuario usuario = new Usuario();
+				 usuario.setId(result.getInt("id"));
+				 usuario.setNome(result.getString("nome"));
+				 usuario.setLogin(result.getString("login"));
+				 usuario.setSenha(result.getString("senha"));
+				 
+				 return usuario;
+			 }
+			 
+			} catch (SQLException e) {
+				e.printStackTrace();
+	 
+ 			}
+		 
+		    return null;
+				  
+	  	}
+	  
+	  public Usuario buscarTodos(Integer id) {
+		  String sql = "Select * from usuario";
+		 			  
+		  List<Usuario> lista = new ArrayList<Usuario>();
+		 try(PreparedStatement preparador = conn.prepareStatement(sql)){
+ 			 
+			ResultSet result = preparador.executeQuery();
+			
+			 while(result.next()) {
+				 Usuario usuario = new Usuario();
+				 usuario.setId(result.getInt("id"));
+				 usuario.setNome(result.getString("nome"));
+				 usuario.setLogin(result.getString("login"));
+				 usuario.setSenha(result.getString("senha"));
+				 
+				 lista.add(usuario);
+			 }
+			 
+			} catch (SQLException e) {
+				e.printStackTrace();
+	 
+ 			}
+		 
+		    return null;
+				  
+	  	}
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+		 
+	  
+   }

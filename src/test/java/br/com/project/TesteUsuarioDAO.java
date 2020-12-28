@@ -7,7 +7,7 @@ public class TesteUsuarioDAO {
    
 	
 	public static void main(String[] args) {
-		testSalvar();
+		TesteBuscarPorId(1);
 	}
 	
 	public static void testeAlterar() {
@@ -63,6 +63,13 @@ public class TesteUsuarioDAO {
     	  usuDAO.salvar(usuario);
     	  
     	  System.out.println("Salvo com sucesso !");
+      }
+      
+      
+      public static void TesteBuscarPorId(Integer id) {
+    	  UsuarioDAO usuDAO = new UsuarioDAO();
+    	  Usuario usuario = usuDAO.buscarPorId(3);
+    	  System.out.println(usuario);
       }
       
       
