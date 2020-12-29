@@ -9,7 +9,7 @@ public class TesteUsuarioDAO {
    
 	
 	public static void main(String[] args) {
-		TestebuscarTodos();
+		TesteAutenticarUsuario();
 	}
 	
 	public static void testeAlterar() {
@@ -83,6 +83,16 @@ public class TesteUsuarioDAO {
   
       }
       
+      public static void TesteAutenticarUsuario() {
+    	  UsuarioDAO usuDAO = new UsuarioDAO();
+    	  
+    	  Usuario user = new Usuario();
+    	  user.setLogin("gumball");
+    	  user.setSenha("2323meninioAzul");
+    	  
+    	  Usuario userRetorno = usuDAO.Autenticar(user);
+    	   System.out.println(userRetorno);
+      }
       
       
       
@@ -93,5 +103,17 @@ public class TesteUsuarioDAO {
       
       
       
-	
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+ 
 }
