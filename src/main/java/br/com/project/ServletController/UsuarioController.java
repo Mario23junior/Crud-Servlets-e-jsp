@@ -13,7 +13,8 @@ import br.com.project.entidade.UsuarioDAO;
 
 @WebServlet("/usuController.do")
 public class UsuarioController extends HttpServlet{
-    
+	private static final long serialVersionUID = 1L;
+
 	public UsuarioController() {
 		System.out.println("Novo servelt");
  	}
@@ -45,8 +46,8 @@ public class UsuarioController extends HttpServlet{
 	 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		 
-		 String login = req.getParameter("login");
 		 String nome = req.getParameter("nome");
+		 String login = req.getParameter("login");
 		 String senha = req.getParameter("senha");
 		 
 		 Usuario user = new Usuario();
@@ -56,11 +57,14 @@ public class UsuarioController extends HttpServlet{
 		 
 		 UsuarioDAO userDAO = new UsuarioDAO();
 		 userDAO.salvar(user);	
+		 
+		 resp.getWriter().print("<h1>O operação realizada com sucesso</h1>");
+		 
 	}
 	 
 	 @Override
 	public void destroy() {
-		 System.out.println("irei destruir tudo");
+		 System.out.println("destruir tudo");
  		super.destroy();
 	}
 }
