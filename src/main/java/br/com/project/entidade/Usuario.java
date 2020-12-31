@@ -8,8 +8,7 @@ public class Usuario {
 	private String senha;
  	
 	public Usuario() {
-		// TODO Auto-generated constructor stub
-	}
+ 	}
 	
 	public Integer getId() {
 		return id;

@@ -1,6 +1,7 @@
 package br.com.project.ServletController;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +28,8 @@ public class UsuarioController extends HttpServlet{
 	
 	 @Override
   	 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         
+         resp.setContentType("text/html");
+		 
 		 String acao = req.getParameter("acao");
 		 
 		 if(acao.equals("excluir")) {
@@ -39,13 +41,21 @@ public class UsuarioController extends HttpServlet{
 				 
 				 UsuarioDAO userDAO = new UsuarioDAO();
 				 userDAO.excluir(userUsuario);
+			 }
 				 
 				 resp.getWriter().print("<h1>O peração de exclusão realizada com sucesso</h1>");
+				 
 			 }else if(acao.equals("list")){
+				 UsuarioDAO userDAO = new UsuarioDAO();
+				 List<Usuario> lista = userDAO.buscarTodos();
+				 
+				 for(Usuario u : lista) {					  
+					 resp.getWriter().print(u.getNome() + "<br><br>");
+				 }
 				 
 			 }
 		 }
-	 }
+	 
 	 
 	 
 	 @Override
