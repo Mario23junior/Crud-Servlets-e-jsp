@@ -26,31 +26,40 @@ public class UsuarioController extends HttpServlet{
 	}
 	
 	 @Override
-	 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-  		
-//		 String login = req.getParameter("login");
-//		 String nome = req.getParameter("nome");
-//		 String senha = req.getParameter("senha");
-//		 
-//		 Usuario user = new Usuario();
-//		 user.setLogin(login);
-//		 user.setNome(nome);
-//		 user.setSenha(senha);
-//		 
-//		 UsuarioDAO userDAO = new UsuarioDAO();
-//		 userDAO.salvar(user);		
-		 System.out.println("Chamou o get");
-	}
+  	 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         
+		 String acao = req.getParameter("acao");
+		 
+		 if(acao.equals("excluir")) {
+			 String id = req.getParameter("id");
+			 Usuario userUsuario = new Usuario();
+			 
+			 if(id != null) {				 
+				 userUsuario.setId(Integer.parseInt(id));
+				 
+				 UsuarioDAO userDAO = new UsuarioDAO();
+				 userDAO.excluir(userUsuario);
+				 
+				 resp.getWriter().print("<h1>O peração de exclusão realizada com sucesso</h1>");
+			 }else if(acao.equals("list")){
+				 
+			 }
+		 }
+	 }
 	 
 	 
 	 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		 
+		 String id = req.getParameter("id");
 		 String nome = req.getParameter("nome");
 		 String login = req.getParameter("login");
 		 String senha = req.getParameter("senha");
 		 
 		 Usuario user = new Usuario();
+		    if(id != null) {		    	
+		      user.setId(Integer.parseInt(id));
+		    }
 		 user.setLogin(login);
 		 user.setNome(nome);
 		 user.setSenha(senha);
