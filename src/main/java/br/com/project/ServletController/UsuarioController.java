@@ -3,6 +3,7 @@ package br.com.project.ServletController;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,10 +50,11 @@ public class UsuarioController extends HttpServlet{
 				 UsuarioDAO userDAO = new UsuarioDAO();
 				 List<Usuario> lista = userDAO.buscarTodos();
 				 
-				 for(Usuario u : lista) {					  
-					 resp.getWriter().print(u.getNome() + "<br><br>");
-				 }
-				 
+				 req.setAttribute("listaUsuarios",lista);
+				
+				RequestDispatcher enviarPage = req.getRequestDispatcher("listaUser.jsp"); 
+				enviarPage.forward(req, resp);
+ 				 
 			 }
 		 }
 	 
