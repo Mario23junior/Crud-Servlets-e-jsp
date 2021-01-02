@@ -52,7 +52,7 @@ public class UsuarioController extends HttpServlet{
 				 
 				 req.setAttribute("listaUsuarios",lista);
 				
-				RequestDispatcher enviarPage = req.getRequestDispatcher("listaUser.jsp"); 
+				RequestDispatcher enviarPage = req.getRequestDispatcher("WEB-INF/listaUser.jsp"); 
 				enviarPage.forward(req, resp);
  				 
 			 }
