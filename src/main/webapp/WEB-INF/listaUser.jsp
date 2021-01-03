@@ -24,7 +24,8 @@
         <tr>
     	  <td><% out.println(listFor.getId());%></td>
     	  <td><% out.println(listFor.getNome());%></td>
-    	  <td> <a href="javascript:confirmarExclusao(<%=listFor.getId()%>)">Excluir</a></td>  	   
+    	  <td> <a href="javascript:confirmarExclusao(<%=listFor.getId()%>)">Excluir</a> |  
+    	  <a href="usuController.do?acao=editar&id=<%=listFor.getId()%>">Alterar</a>
      	</tr>
     <%}%>     
    </table>

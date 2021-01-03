@@ -54,7 +54,30 @@ public class UsuarioController extends HttpServlet{
 				
 				RequestDispatcher enviarPage = req.getRequestDispatcher("WEB-INF/listaUser.jsp"); 
 				enviarPage.forward(req, resp);
-			 }
+				
+			}else if(acao.equals("editar")) {
+				 String id = req.getParameter("id");
+				 
+				 UsuarioDAO userDAO = new UsuarioDAO();
+				 Usuario usuario = userDAO.buscarPorId(Integer.parseInt(id)); 
+				 
+				 req.setAttribute("userAlterar", usuario);
+				  RequestDispatcher dispacher = req.getRequestDispatcher("WEB-INF/userForm.jsp");
+				  dispacher.forward(req, resp);
+				 
+ 			}else if(acao.equals("cad")) {
+ 				Usuario usuario = new Usuario();
+ 				usuario.setId(0);
+  				usuario.setNome("");
+  				usuario.setLogin("");
+ 				usuario.setSenha("");
+ 				
+ 				 req.setAttribute("userAlterar", usuario);
+				 RequestDispatcher dispacher = req.getRequestDispatcher("WEB-INF/userForm.jsp");
+				 dispacher.forward(req, resp);
+ 			}
+ 				
+		 	   
 		 }
 	 
 	 
