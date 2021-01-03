@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Listagem do Usuarios </title>
+ <script type="text/javascript">
+       function confirmarExclusao(id) {
+    	   if(window.confirm("Esse dado sera excluido permanentemente. deseja realmente excluir ?")){
+    		   location.href="usuController.do?acao=excluir&id="+id;
+    	   }
+       }
+ </script>
 </head>
 <body>
     <%
@@ -17,7 +24,7 @@
         <tr>
     	  <td><% out.println(listFor.getId());%></td>
     	  <td><% out.println(listFor.getNome());%></td>
-    	  <td> <a href="usuController.do?acao=excluir&id=<%=listFor.getId()%>">Excluir</a></td>  	   
+    	  <td> <a href="javascript:confirmarExclusao(<%=listFor.getId()%>)">Excluir</a></td>  	   
      	</tr>
     <%}%>     
    </table>

@@ -44,7 +44,7 @@ public class UsuarioController extends HttpServlet{
 				 userDAO.excluir(userUsuario);
 			 }
 				 
-				 resp.getWriter().print("<h1>O peração de exclusão realizada com sucesso</h1>");
+				resp.sendRedirect("usuController.do?acao=list");
 				 
 			 }else if(acao.equals("list")){
 				 UsuarioDAO userDAO = new UsuarioDAO();
@@ -54,7 +54,6 @@ public class UsuarioController extends HttpServlet{
 				
 				RequestDispatcher enviarPage = req.getRequestDispatcher("WEB-INF/listaUser.jsp"); 
 				enviarPage.forward(req, resp);
- 				 
 			 }
 		 }
 	 
