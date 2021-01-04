@@ -32,7 +32,7 @@ public class AutenticadorController extends HttpServlet{
 	  
 	  if(userAutenticado != null) {
 		 HttpSession sessao = req.getSession();
-		 sessao.setAttribute("user", userAutenticado);
+		 sessao.setAttribute("userAutenticado", userAutenticado);
 		 
 		 sessao.setMaxInactiveInterval(60*5);
 		 req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp); 
