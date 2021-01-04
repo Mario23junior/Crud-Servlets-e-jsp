@@ -37,7 +37,7 @@ public class AutenticadorController extends HttpServlet{
 		 sessao.setMaxInactiveInterval(60*5);
 		 req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp); 
 	  }else {
-		  resp.getWriter().print("<script> window.alert ('Login não encontrado'); location.href='login.html' </script>");
+		  resp.getWriter().print("<script> window.alert ('Usuairo não encontrado(a)'); location.href='login.html' </script>");
 		  
 	  }
 
