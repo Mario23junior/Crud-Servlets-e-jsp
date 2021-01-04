@@ -8,10 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h2>Seja muito bem vinda(a) <%
+ <%@ include file="menu.jsp"%>
+ 
+    <h2>Seja muito bem vinda(a)</h2> <%
        Usuario usuario = (Usuario) request.getSession().getAttribute("userAutenticado"); 
          out.print(usuario.getNome());
-     %> </h2>
+     %>
   
 </body>
 </html>

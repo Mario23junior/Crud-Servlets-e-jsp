@@ -13,8 +13,16 @@
     	   }
        }
  </script>
+   <script type="text/javascript">
+      function novo() {
+    	  location.href="usuController.do?acao=cad"  
+      }
+  </script>
 </head>
 <body>
+
+ <%@ include file="menu.jsp"%>
+
     <%
       List<Usuario> lista = (List<Usuario>)request.getAttribute("listaUsuarios");
     %>
@@ -26,9 +34,12 @@
     	  <td><% out.println(listFor.getNome());%></td>
     	  <td> <a href="javascript:confirmarExclusao(<%=listFor.getId()%>)">Excluir</a> |  
     	  <a href="usuController.do?acao=editar&id=<%=listFor.getId()%>">Alterar</a>
+    	  
      	</tr>
     <%}%>     
-   </table>
+   </table><br>
+       <input type="submit" value="Novo" onclick="javascript:novo()">        
+   
     
     
 </body>

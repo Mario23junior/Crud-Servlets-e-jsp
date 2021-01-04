@@ -8,6 +8,7 @@
 <title>Sistema de Agenda</title>
 </head>
 <body>
+       <%@ include file="menu.jsp"%>
        
        <%
           Usuario usuarioData = (Usuario)request.getAttribute("userAlterar");
@@ -25,9 +26,8 @@
         
         <label>Senha</label>
         <input type="password" placeholder="Digite sua senha" name="senha" value="<%=usuarioData.getSenha()%>"/> <br> <br>
-        
-        
-        <button type="submit">Salvar</button>
+               
+         <button type="submit">Salvar</button>
     </form>
 </body>
 </html>

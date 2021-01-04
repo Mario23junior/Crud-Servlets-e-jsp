@@ -15,6 +15,10 @@ import br.com.project.entidade.UsuarioDAO;
  
 @WebServlet("/autenticador.do")
 public class AutenticadorController extends HttpServlet{
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -32,10 +36,10 @@ public class AutenticadorController extends HttpServlet{
 	  
 	  if(userAutenticado != null) {
 		 HttpSession sessao = req.getSession();
-		 sessao.setAttribute("userAutenticado", userAutenticado);
-		 
+		 sessao.setAttribute("userAutenticado", userAutenticado);		 
 		 sessao.setMaxInactiveInterval(60*5);
-		 req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp); 
+		 
+ 		 req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp); 
 	  }else {
 		  resp.getWriter().print("<script> window.alert ('Usuairo não encontrado(a)'); location.href='login.html' </script>");
 		  
